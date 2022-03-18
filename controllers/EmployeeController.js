@@ -19,7 +19,7 @@ const index = (req, res, next) =>{
 
 // show single employee
 const show =(req, res, next) =>{
-    let EmployeeID = req.body.employeeID
+    let employeeID = req.body.employeeID
     Employee.findById(employeeID)
     .then(response =>{
         res.json({
@@ -66,7 +66,7 @@ const update =(req, res, next) =>{
         age: req.body.age
     }
 
-    employee.findByIDAndUpdate(employeeID, {$set: updateData})
+    Employee.findByIDAndUpdate(employeeID, {$set: updateData})
     .then(()=>{
         res.json({
             message: 'Update successful'
@@ -83,7 +83,7 @@ const update =(req, res, next) =>{
 
 const destroy = (req, res, next) =>{
     let employeeID = req.body.employeeID
-    EmployeeID.findByIDAndRemove(employeeID)
+    employeeID.findByIDAndRemove(employeeID)
     .then(()=>{
         res.json({
             message: 'Delete successful'
