@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const EmployeeRoute = require('./routes/employee')
+const AuthRoute = require('./routes/auth')
 mongoose.connect('mongodb+srv://hatrala:08072001@cluster0.n0kyj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
 
 const db = mongoose.connection
@@ -28,3 +29,4 @@ app.listen(PORT, () =>{
 })
 
 app.use('/api/employee', EmployeeRoute)
+app.use('/api', AuthRoute)
